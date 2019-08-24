@@ -10,7 +10,7 @@ RUN set -e;\
     ; \
     ./scripts/generate-ssl-certs.sh; \
 	apk --purge del .build-deps; \
-    chown -R node:node config/sslcerts/
+    chown -R node:node sslcerts/
 
 ENV NODE_ENV=production \
     HOST=localhost \
