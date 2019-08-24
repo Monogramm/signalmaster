@@ -51,8 +51,8 @@ module.exports = function (server, config) {
             // sanity check
             if (typeof name !== 'string') return;
             // check if maximum number of clients reached
-            if (config.rooms && config.rooms.maxClients > 0 &&
-                clientsInRoom(name) >= config.rooms.maxClients) {
+            var maxClients = parseInt(process.env.ROOM_MAX_CLIENTS || config.rooms.maxClients, 10);
+            if (maxClients > 0 && clientsInRoom(name) >= maxClients) {
                 safeCb(cb)('full');
                 return;
             }

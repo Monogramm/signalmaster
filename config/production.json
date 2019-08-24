@@ -5,13 +5,13 @@
     "host": "localhost",
     "/* secure */": "/* whether this connects via https */",
     "secure": true,
-    "key": "${SSL_KEY}",
-    "cert": "${SSL_CERT}",
+    "key": null,
+    "cert": null,
     "password": null
   },
   "rooms": {
     "/* maxClients */": "/* maximum number of clients per room. 0 = no limit */",
-    "maxClients": ${ROOM_MAX_CLIENTS}
+    "maxClients": 0
   },
   "stunservers": [
     {
