@@ -11,10 +11,10 @@ then
 fi
 
 echo "Generating self-signed certificates..."
-mkdir -p ./config/sslcerts
-openssl genrsa -out ./config/sslcerts/key.pem 1024
-openssl req -new -key ./config/sslcerts/key.pem -out ./config/sslcerts/csr.pem -batch
-openssl x509 -req -days 9999 -in ./config/sslcerts/csr.pem -signkey ./config/sslcerts/key.pem -out ./config/sslcerts/cert.pem
-rm ./config/sslcerts/csr.pem
-chmod 600 ./config/sslcerts/key.pem ./config/sslcerts/cert.pem
-echo "Self-signed certificates generated at $(pwd)/config/sslcerts/"
+mkdir -p ./sslcerts
+openssl genrsa -out ./sslcerts/key.pem 1024
+openssl req -new -key ./sslcerts/key.pem -out ./sslcerts/csr.pem -batch
+openssl x509 -req -days 9999 -in ./sslcerts/csr.pem -signkey ./sslcerts/key.pem -out ./config/sslcerts/cert.pem
+rm ./sslcerts/csr.pem
+chmod 600 ./sslcerts/key.pem ./sslcerts/cert.pem
+echo "Self-signed certificates generated at $(pwd)/sslcerts/"

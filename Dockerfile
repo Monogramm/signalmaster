@@ -20,8 +20,8 @@ ENV NODE_ENV=production \
     TURN_SERVER_DOMAIN= \
     TURN_SERVER_PORT= \
     TURN_SERVER_SECRET= \
-    SSL_KEY= \
-    SSL_CERT= \
+    SSL_KEY=./sslcerts/key.pem \
+    SSL_CERT=./sslcerts/cert.pem \
     SSL_PASSWORD=
 
 USER node
