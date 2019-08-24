@@ -2,17 +2,22 @@ version: "2"
 
 services:
   # https://docs.docker.com/docker-hub/builds/automated-testing/
-  #sut:
-  #  build:
-  #    context: ./
-  #    dockerfile: Dockerfile
-  #  command: /.docker_test.sh
-  #  depends_on:
-  #    - signalmaster
-  #    - coturn
-  #  environment:
-  #    # Node setup
-  #    - NODE_ENV=production
+  sut:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: node test.js
+    depends_on:
+      - signalmaster
+      - coturn
+    environment:
+      # Node setup
+      - NODE_ENV=production
+      - HOST=signalmaster
+      - PORT=8888
+      # SSL setup
+      - SSL_KEY=./config/sslcerts/key.pem
+      - SSL_CERT=./config/sslcerts/cert.pem
 
   signalmaster:
     # For development or CI, build from local Dockerfile
