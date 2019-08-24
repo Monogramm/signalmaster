@@ -45,8 +45,8 @@ services:
       # SSL setup
       - SSL_KEY=./config/sslcerts/key.pem
       - SSL_CERT=./config/sslcerts/cert.pem
-      #- SSL_KEY=/etc/letsencrypt/live/${DOMAIN}/fullchain.pem
-      #- SSL_CERT=/etc/letsencrypt/live/${DOMAIN}/privkey.pem
+      #- SSL_KEY=/etc/letsencrypt/live/${DOMAIN}/privkey.pem
+      #- SSL_CERT=/etc/letsencrypt/live/${DOMAIN}/cert.pem
 
   coturn:
     image: monogramm/docker-coturn:latest
@@ -77,5 +77,5 @@ services:
       # If you need SSL connection, you can provide your own certificates
       - TLS_KEY=./config/sslcerts/key.pem
       - TLS_CERT=./config/sslcerts/cert.pem
-      #- TLS_CERT=/etc/letsencrypt/live/${DOMAIN}/fullchain.pem
-      #- TLS_KEY=/etc/letsencrypt/live/${DOMAIN}/privkey.pem
+      #- TLS_CERT=/etc/letsencrypt/live/${DOMAIN}/privkey.pem
+      #- TLS_KEY=/etc/letsencrypt/live/${DOMAIN}/cert.pem
