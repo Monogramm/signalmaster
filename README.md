@@ -1,3 +1,9 @@
+
+[uri_license]: https://opensource.org/licenses/MIT
+[uri_license_image]: https://img.shields.io/badge/license-MIT-blue.svg
+
+[![License: AGPL v3][uri_license_image]][uri_license]
+
 # Deprecated
 
 The open-source version of SimpleWebRTC has been deprecated. This repository will remain as-is but is no longer actively maintained.
