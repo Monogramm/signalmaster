@@ -5,19 +5,16 @@ services:
   sut:
     build:
       context: ./
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.test
     command: node test.js
     depends_on:
       - signalmaster
       - coturn
     environment:
       # Node setup
-      - NODE_ENV=production
+      - NODE_ENV=development
       - HOST=signalmaster
       - PORT=8888
-      # SSL setup
-      - SSL_KEY=./sslcerts/key.pem
-      - SSL_CERT=./sslcerts/cert.pem
 
   signalmaster:
     # For development or CI, build from local Dockerfile
