@@ -14,7 +14,7 @@ echo "Generating self-signed certificates..."
 mkdir -p ./sslcerts
 openssl genrsa -out ./sslcerts/key.pem 1024
 openssl req -new -key ./sslcerts/key.pem -out ./sslcerts/csr.pem -batch
-openssl x509 -req -days 9999 -in ./sslcerts/csr.pem -signkey ./sslcerts/key.pem -out ./config/sslcerts/cert.pem
+openssl x509 -req -days 9999 -in ./sslcerts/csr.pem -signkey ./sslcerts/key.pem -out ./sslcerts/cert.pem
 rm ./sslcerts/csr.pem
 chmod 600 ./sslcerts/key.pem ./sslcerts/cert.pem
 echo "Self-signed certificates generated at $(pwd)/sslcerts/"
