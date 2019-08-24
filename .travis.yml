@@ -24,6 +24,7 @@ script:
   - docker-compose logs
   - docker-compose ps "signalmaster" | grep "Up" || exit 1
   - docker-compose logs "signalmaster" | grep 'signal master is running at'
+  - docker-compose logs "sut" | grep 'Tests complete, killing server.'
   # Test container restart
   - docker-compose down
   - docker-compose up -d && sleep 10
@@ -31,6 +32,7 @@ script:
   - docker-compose logs
   - docker-compose ps "signalmaster" | grep "Up" || exit 1
   - docker-compose logs "signalmaster" | grep 'signal master is running at'
+  - docker-compose logs "sut" | grep 'Tests complete, killing server.'
 
 notifications:
   email: false
