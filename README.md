@@ -47,7 +47,7 @@ Running the server requires a valid installation of node.js which can be install
     ```
 * run in Production mode
     ```shell
-    $ NODE_ENV=production SSL_KEY=./sslcerts/key.pem SSL_CERT=./sslcerts/cert.pem STUN_SERVER_DOMAIN=your.turn.servers.here STUN_SERVER_PORT=5449 TURN_SERVER_DOMAIN=your.turn.servers.here TURN_SERVER_PORT=5449 TURN_SERVER_SECRET=turnserversharedsecret node server.js
+    $ NODE_ENV=production ROOM_MAX_CLIENTS=0 SSL_KEY=./sslcerts/key.pem SSL_CERT=./sslcerts/cert.pem STUN_SERVER_DOMAIN=your.turn.servers.here STUN_SERVER_PORT=5449 TURN_SERVER_DOMAIN=your.turn.servers.here TURN_SERVER_PORT=5449 TURN_SERVER_SECRET=turnserversharedsecret node server.js
     ```
 
 ## Use with Express
