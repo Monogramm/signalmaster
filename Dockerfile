@@ -15,8 +15,7 @@ ENV NODE_ENV=production \
     TURN_SERVER_PORT= \
     TURN_SERVER_SECRET= \
     SSL_KEY= \
-    SSL_CERT= \
-    SSL_PASSWORD=
+    SSL_CERT=
 
 USER node
 CMD ["node", "server.js"]

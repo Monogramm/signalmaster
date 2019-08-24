@@ -7,7 +7,7 @@
     "secure": true,
     "key": "${SSL_KEY}",
     "cert": "${SSL_CERT}",
-    "password": "${SSL_PASSWORD}"
+    "password": null
   },
   "rooms": {
     "/* maxClients */": "/* maximum number of clients per room. 0 = no limit */",
