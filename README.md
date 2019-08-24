@@ -25,7 +25,7 @@ Read more:
 
 ## Running
 
-Running the server requires a valid installation of node.js which can be installed from the nodejs.org website. After installing the package you will need to install the node dependencies.
+Running the server requires a valid installation of node.js which can be installed from the [nodejs.org](nodejs.org) website. After installing the package you will need to install the node dependencies.
 
 1. `npm install`
 
@@ -33,11 +33,11 @@ Running the server requires a valid installation of node.js which can be install
 
 3. In the console you will see a message which tells you where the server is running:
 
-        						"signal master is running at: http://localhost:8888"
+        "signal master is running at: http://localhost:8888"
 
 4. Open a web browser to the specified URL and port to ensure that the server is running properly. You should see the message when you go to the /socket.io/ subfolder (e.g. http://localhost:8888/socket.io/), you should see a message like this:
 
-        						{"code":0,"message":"Transport unknown"}
+        {"code":0,"message":"Transport unknown"}
 
 ### Production Environment
 
@@ -47,7 +47,7 @@ Running the server requires a valid installation of node.js which can be install
     ```
 * run in Production mode
     ```shell
-    $ NODE_ENV=production ROOM_MAX_CLIENTS=0 SSL_KEY=./sslcerts/key.pem SSL_CERT=./sslcerts/cert.pem STUN_SERVER_DOMAIN=your.turn.servers.here STUN_SERVER_PORT=5449 TURN_SERVER_DOMAIN=your.turn.servers.here TURN_SERVER_PORT=5449 TURN_SERVER_SECRET=turnserversharedsecret node server.js
+    $ NODE_ENV=production STUN_SERVER_DOMAIN=your.turn.servers.here STUN_SERVER_PORT=5449 TURN_SERVER_DOMAIN=your.turn.servers.here TURN_SERVER_PORT=5449 TURN_SERVER_SECRET=turnserversharedsecret node server.js
     ```
 
 ## Use with Express
@@ -78,3 +78,18 @@ To run the image from Dockerhub execute this:
 This will start a signal master server on port 8888 exposed on port 8888.
 
 By default, the docker image will run as production.
+
+Environment variables:
+    ```
+    HOST=localhost
+    PORT=8888
+    ROOM_MAX_CLIENTS=0
+    STUN_SERVER_DOMAIN=stun.l.google.com
+    STUN_SERVER_PORT=19302
+    TURN_SERVER_DOMAIN=
+    TURN_SERVER_PORT=
+    TURN_SERVER_SECRET=
+    SSL_KEY=./sslcerts/key.pem
+    SSL_CERT=./sslcerts/cert.pem
+    SSL_PASSWORD=
+    ```
