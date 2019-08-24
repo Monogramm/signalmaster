@@ -33,11 +33,11 @@ Running the server requires a valid installation of node.js which can be install
 
 3. In the console you will see a message which tells you where the server is running:
 
-						"signal master is running at: http://localhost:8888"
+        						"signal master is running at: http://localhost:8888"
 
 4. Open a web browser to the specified URL and port to ensure that the server is running properly. You should see the message when you go to the /socket.io/ subfolder (e.g. http://localhost:8888/socket.io/), you should see a message like this:
 
-						{"code":0,"message":"Transport unknown"}
+        						{"code":0,"message":"Transport unknown"}
 
 ### Production Environment
 
