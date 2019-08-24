@@ -4,8 +4,7 @@ WORKDIR /app
 COPY . .
 
 RUN set -e;\
-    npm install --production; \
-    ./scripts/generate-ssl-certs.sh
+    npm install --production
 
 ENV NODE_ENV=production \
     HOST=localhost \
