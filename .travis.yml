@@ -11,10 +11,8 @@ branches:
 
 before_script:
   - env | sort
-  - dir="images/${VERSION}/${VARIANT}"
 
 script:
-  - cd "$dir"
   # Test generation Self-signed certificates
   - ./scripts/generate-ssl-certs.sh
   # Test container build
@@ -37,12 +35,9 @@ script:
 notifications:
   email: false
 
-matrix:
-  allow_failures:
-    - env: VARIANT=debian
-    - env: VARIANT=debian-slim
+#matrix:
+#  allow_failures:
+#    - env: VARIANT=dummy
 
 env: # Environments
-  - VARIANT=alpine
-  - VARIANT=debian-slim
-  - VARIANT=debian
+  - VARIANT=dummy
