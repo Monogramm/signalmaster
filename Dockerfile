@@ -4,7 +4,8 @@ WORKDIR /app
 COPY . .
 
 RUN set -e;\
-    npm install --production
+    npm install --production; \
+    ls -al
 
 ENV NODE_ENV=production \
     HOST=localhost \
@@ -17,5 +18,5 @@ ENV NODE_ENV=production \
     SSL_KEY= \
     SSL_CERT=
 
-USER node
+#USER node
 CMD ["node", "server.js"]
