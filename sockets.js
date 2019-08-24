@@ -1,5 +1,5 @@
 var socketIO = require('socket.io'),
-    uuid = require('uuid/v1'),
+    uuid = require('uuid/v4'),
     crypto = require('crypto');
 
 module.exports = function (server, config) {
@@ -126,11 +126,11 @@ module.exports = function (server, config) {
 
     function describeRoom(name) {
         var adapter = io.nsps['/'].adapter;
-        var clients = adapter.rooms[name] ? adapter.rooms[name].sockets : {};
+        var room = adapter.rooms[name] || {sockets: {}, length: 0};
         var result = {
             clients: {}
         };
-        Object.keys(clients).forEach(function (id) {
+        Object.keys(room.sockets).forEach(function (id) {
             result.clients[id] = adapter.nsp.connected[id].resources;
         });
         return result;
