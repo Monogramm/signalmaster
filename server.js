@@ -4,6 +4,7 @@ var yetify = require('yetify'),
     fs = require('fs'),
     sockets = require('./sockets'),
     port = parseInt(process.env.PORT || config.server.port, 10),
+    host = process.env.HOST || config.server.host,
     server_handler = function (req, res) {
         if (req.url === '/healthcheck') {
             console.log(Date.now(), 'healthcheck');
@@ -17,7 +18,7 @@ var yetify = require('yetify'),
     server = null;
 
 // Create an http(s) server instance to that socket.io can listen to
-if (config.server.secure) {
+if (config.server.secure && config.server.key && config.server.cert) {
     server = require('https').Server({
         key: fs.readFileSync(config.server.key),
         cert: fs.readFileSync(config.server.cert),
@@ -34,8 +35,8 @@ if (config.uid) process.setuid(config.uid);
 
 var httpUrl;
 if (config.server.secure) {
-    httpUrl = "https://localhost:" + port;
+    httpUrl = "https://" + host + ":" + port;
 } else {
-    httpUrl = "http://localhost:" + port;
+    httpUrl = "http://" + host + ":" + port;
 }
 console.log(yetify.logo() + ' -- signal master is running at: ' + httpUrl);

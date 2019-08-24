@@ -15,9 +15,9 @@ var io = require('socket.io-client');
 
 var socketURL;
 if (config.server.secure) {
-    socketURL = "https://localhost:" + config.server.port;
+    socketURL = "https://" + config.server.host + ":" + config.server.port;
 } else {
-    socketURL = "http://localhost:" + config.server.port;
+    socketURL = "http://" + config.server.host + ":" + config.server.port;
 }
 
 var socketOptions = {
