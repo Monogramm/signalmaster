@@ -2,17 +2,17 @@ version: "2"
 
 services:
   # https://docs.docker.com/docker-hub/builds/automated-testing/
-  sut:
-    build:
-      context: ./
-      dockerfile: Dockerfile
-    command: /.docker_test.sh
-    depends_on:
-      - signalmaster
-      - coturn
-    environment:
-      # Node setup
-      - NODE_ENV=production
+  #sut:
+  #  build:
+  #    context: ./
+  #    dockerfile: Dockerfile
+  #  command: /.docker_test.sh
+  #  depends_on:
+  #    - signalmaster
+  #    - coturn
+  #  environment:
+  #    # Node setup
+  #    - NODE_ENV=production
 
   signalmaster:
     # For development or CI, build from local Dockerfile
