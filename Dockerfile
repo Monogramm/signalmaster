@@ -5,7 +5,12 @@ COPY . .
 
 RUN set -e;\
     npm install --production; \
-    ls -al
+    apk add --update --no-cache --virtual .build-deps \
+        openssl \
+    ; \
+    ./scripts/generate-ssl-certs.sh; \
+	apk --purge del .build-deps; \
+    chown -R node:node config/sslcerts/
 
 ENV NODE_ENV=production \
     HOST=localhost \
@@ -16,7 +21,8 @@ ENV NODE_ENV=production \
     TURN_SERVER_PORT= \
     TURN_SERVER_SECRET= \
     SSL_KEY= \
-    SSL_CERT=
+    SSL_CERT= \
+    SSL_PASSWORD=
 
-#USER node
+USER node
 CMD ["node", "server.js"]
