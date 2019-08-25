@@ -13,8 +13,6 @@ before_script:
   - env | sort
 
 script:
-  # Test generation Self-signed certificates
-  - ./scripts/generate-ssl-certs.sh
   # Test container build
   - travis_retry travis_wait 60 docker-compose build
   - docker images
