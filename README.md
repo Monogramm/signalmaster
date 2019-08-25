@@ -10,7 +10,7 @@
 
 :construction: **This image is still in development!**
 
-# signalmaster
+# talk-signalmaster
 
 A simple signaling server for NextCloud Talk to connect and do signaling for WebRTC.
 
@@ -42,54 +42,59 @@ Running the server requires a valid installation of node.js which can be install
 ### Production Environment
 
 * generate your ssl certs
-    ```shell
-    $ ./scripts/generate-ssl-certs.sh
-    ```
+
+```shell
+$ ./scripts/generate-ssl-certs.sh
+```
+
 * run in Production mode
-    ```shell
-    $ NODE_ENV=production STUN_SERVER_DOMAIN=your.turn.servers.here STUN_SERVER_PORT=5449 TURN_SERVER_DOMAIN=your.turn.servers.here TURN_SERVER_PORT=5449 TURN_SERVER_SECRET=turnserversharedsecret node server.js
-    ```
+
+```shell
+$ NODE_ENV=production STUN_SERVER_DOMAIN=your.turn.servers.here STUN_SERVER_PORT=5449 TURN_SERVER_DOMAIN=your.turn.servers.here TURN_SERVER_PORT=5449 TURN_SERVER_SECRET=turnserversharedsecret node server.js
+```
 
 ## Use with Express
-    ```js
-    var express = require('express')
-    var sockets = require('signalmaster/sockets')
 
-    var app = express()
-    var server = app.listen(port)
-    sockets(server, config) // config is the same that server.js uses
-    ```
+```js
+var express = require('express')
+var sockets = require('signalmaster/sockets')
+
+var app = express()
+var server = app.listen(port)
+sockets(server, config) // config is the same that server.js uses
+```
 
 ## Docker
 
 You can build then run this image by calling:  
 
-    ```shell
-    docker build -t signalmaster https://github.com/Monogramm/signalmaster
-    docker run --name signalmaster -d -p 8888:8888 signalmaster
-    ```
+```shell
+docker build -t signalmaster https://github.com/Monogramm/signalmaster
+docker run --name signalmaster -d -p 8888:8888 signalmaster
+```
 
 To run the image from Dockerhub execute this:
 
-    ```shell
-    docker run --name signalmaster -d -p 8888:8888 monogramm/docker-signalmaster
-    ```
+```shell
+docker run --name signalmaster -d -p 8888:8888 monogramm/docker-signalmaster
+```
 
 This will start a signal master server on port 8888 exposed on port 8888.
 
 By default, the docker image will run as production.
 
 Environment variables:
-    ```
-    HOST=localhost
-    PORT=8888
-    ROOM_MAX_CLIENTS=0
-    STUN_SERVER_DOMAIN=stun.l.google.com
-    STUN_SERVER_PORT=19302
-    TURN_SERVER_DOMAIN=
-    TURN_SERVER_PORT=
-    TURN_SERVER_SECRET=
-    SSL_KEY=./sslcerts/key.pem
-    SSL_CERT=./sslcerts/cert.pem
-    SSL_PASSWORD=
-    ```
+
+```
+HOST=localhost
+PORT=8888
+ROOM_MAX_CLIENTS=0
+STUN_SERVER_DOMAIN=stun.l.google.com
+STUN_SERVER_PORT=19302
+TURN_SERVER_DOMAIN=
+TURN_SERVER_PORT=
+TURN_SERVER_SECRET=
+SSL_KEY=./sslcerts/key.pem
+SSL_CERT=./sslcerts/cert.pem
+SSL_PASSWORD=
+```
