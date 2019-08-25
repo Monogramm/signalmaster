@@ -2,6 +2,7 @@
   "isDev": true,
   "server": {
     "port": 8888,
+    "host": "localhost",
     "/* secure */": "/* whether this connects via https */",
     "secure": false,
     "key": null,
@@ -17,11 +18,5 @@
       "urls": "stun:stun.l.google.com:19302"
     }
   ],
-  "turnservers": [
-    {
-      "urls": ["turn:your.turn.servers.here"],
-      "secret": "turnserversharedsecret",
-      "expiry": 86400
-    }
-  ]
+  "turnservers": []
 }

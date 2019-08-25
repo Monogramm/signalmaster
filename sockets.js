@@ -1,5 +1,5 @@
 var socketIO = require('socket.io'),
-    uuid = require('node-uuid'),
+    uuid = require('uuid/v4'),
     crypto = require('crypto');
 
 module.exports = function (server, config) {
@@ -51,8 +51,8 @@ module.exports = function (server, config) {
             // sanity check
             if (typeof name !== 'string') return;
             // check if maximum number of clients reached
-            if (config.rooms && config.rooms.maxClients > 0 &&
-                clientsInRoom(name) >= config.rooms.maxClients) {
+            var maxClients = parseInt(process.env.ROOM_MAX_CLIENTS || config.rooms.maxClients, 10);
+            if (maxClients > 0 && clientsInRoom(name) >= maxClients) {
                 safeCb(cb)('full');
                 return;
             }
@@ -94,7 +94,7 @@ module.exports = function (server, config) {
         // useful for large-scale error monitoring
         client.on('trace', function (data) {
             console.log('trace', JSON.stringify(
-            [data.type, data.session, data.prefix, data.peer, data.time, data.value]
+                [data.type, data.session, data.prefix, data.peer, data.time, data.value]
             ));
         });
 
@@ -126,18 +126,18 @@ module.exports = function (server, config) {
 
     function describeRoom(name) {
         var adapter = io.nsps['/'].adapter;
-        var clients = adapter.rooms[name] ? adapter.rooms[name].sockets : {};
+        var room = adapter.rooms[name] || {sockets: {}, length: 0};
         var result = {
             clients: {}
         };
-        Object.keys(clients).forEach(function (id) {
+        Object.keys(room.sockets).forEach(function (id) {
             result.clients[id] = adapter.nsp.connected[id].resources;
         });
         return result;
     }
 
     function clientsInRoom(name) {
-        return io.sockets.clients(name).length;
+        return Object.keys(io.nsps['/'].adapter.rooms[name] || {}).length;
     }
 
 };
