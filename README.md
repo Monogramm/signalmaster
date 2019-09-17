@@ -8,20 +8,23 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/monogramm/docker-signalmaster.svg)](https://hub.docker.com/r/monogramm/docker-signalmaster/)
 [![Docker layers](https://images.microbadger.com/badges/image/monogramm/docker-signalmaster.svg)](https://microbadger.com/images/monogramm/docker-signalmaster)
 
-:construction: **This image is still in development!**
+# Deprecated
 
-# talk-signalmaster
+The open-source version of SimpleWebRTC has been deprecated. This repository will remain as-is but is no longer actively maintained.
+Read more about the "new" SimpleWebRTC (which is an entirely different thing) on https://simplewebrtc.com
 
-A simple signaling server for NextCloud Talk to connect and do signaling for WebRTC.
+# signalmaster
 
-This repository aims to provide a default connection point for [NextCloud Talk](https://github.com/nextcloud/spreed).
-It was created from the simple [signalmaster](https://github.com/simplewebrtc/signalmaster) for [SimpleWebRTC.js](https://github.com/HenrikJoreteg/SimpleWebRTC), whose open-source version has now been deprecated.
+A simple signaling server for clients to connect and do signaling for WebRTC.
 
-It also supports vending STUN/TURN servers with the shared secret mechanism as described in [this draft](http://tools.ietf.org/html/draft-uberti-behave-turn-rest-00). This mechanism is implemented e.g. by [rfc-5766-turn-server](https://code.google.com/p/rfc5766-turn-server/) or by a [patched version](https://github.com/otalk/restund) of [restund](http://creytiv.com/restund.html).
+Specifically created as a default connection point for [SimpleWebRTC.js](https://github.com/HenrikJoreteg/SimpleWebRTC)
+
+It also supports vending STUN/TURN servers with the shared secret mechanism as described in [this draft](http://tools.ietf.org/html/draft-uberti-behave-turn-rest-00).  This mechanism is implemented e.g. by [rfc-5766-turn-server](https://code.google.com/p/rfc5766-turn-server/) or by a [patched version](https://github.com/otalk/restund) of [restund](http://creytiv.com/restund.html).
 
 Read more:
-- [NextCloud Talk External signaling API](https://github.com/nextcloud/spreed/blob/master/docs/standalone-signaling-api-v1.md)
-- [SimpleWebRTC.com](http://simplewebrtc.com)
+ - [Introducing SimpleWebRTC and conversat.io](http://blog.andyet.com/2013/02/22/introducing-simplewebrtcjs-and-conversatio/)
+ - [SimpleWebRTC.com](http://simplewebrtc.com)
+ - [talky.io](https://talky.io)
 
 ## Running
 
